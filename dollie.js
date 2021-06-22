@@ -1,6 +1,12 @@
 module.exports = {
   questions: [
     {
+      name: 'name',
+      type: 'input',
+      message: 'Enter the project name',
+      default: 'project'
+    },
+    {
       name: '$EXTEND:typescript$',
       type: 'confirm',
       message: 'Do you want to use TypeScript?',
