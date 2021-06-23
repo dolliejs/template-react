@@ -114,6 +114,11 @@ module.exports = {
       }
     },
     redux: {
+      cleanups: [
+        async function({ addFile }) {
+          addFile('src/test.txt', 'test cleanups')
+        },
+      ],
       files: {
         add: [
           'src/store/**/*.{js,ts}',
@@ -126,11 +131,6 @@ module.exports = {
       }
     },
     dva: {
-      cleanups: [
-        async function({ addFile }) {
-          addFile('src/test.txt', 'test cleanups')
-        },
-      ],
       files: {
         merge: [
           'src/App.{js,tsx}',
