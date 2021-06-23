@@ -59,7 +59,7 @@ module.exports = {
   ],
   cleanups: [
     function({ deleteFiles }) {
-      deleteFiles(['src/tsconfig.json'])
+      deleteFiles(['tsconfig.json'])
     },
   ],
   extendTemplates: {
