@@ -58,7 +58,7 @@ module.exports = {
     }
   ],
   cleanups: [
-    function({ deleteFiles }) {
+    async function({ deleteFiles }) {
       deleteFiles(['tsconfig.json'])
     },
   ],
@@ -127,7 +127,7 @@ module.exports = {
     },
     dva: {
       cleanups: [
-        function({ addFile }) {
+        async function({ addFile }) {
           addFile('src/test.txt', 'test cleanups')
         },
       ],
