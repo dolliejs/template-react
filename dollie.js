@@ -57,6 +57,11 @@ module.exports = {
       default: 'null'
     }
   ],
+  cleanups: [
+    function({ deleteFiles }) {
+      deleteFiles(['src/tsconfig.json'])
+    },
+  ],
   extendTemplates: {
     typescript: {
       files: {
@@ -121,6 +126,11 @@ module.exports = {
       }
     },
     dva: {
+      cleanups: [
+        function({ addFile }) {
+          addFile('src/test.txt', 'test cleanups')
+        },
+      ],
       files: {
         merge: [
           'src/App.{js,tsx}',
