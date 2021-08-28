@@ -13,6 +13,12 @@ module.exports = {
       default: false,
     },
     {
+      name: '$EXTEND:react-router$',
+      type: 'confirm',
+      message: 'Do you want to use React Router?',
+      default: false,
+    },
+    {
       name: '$EXTEND$',
       type: 'list',
       message: 'Select a CSS preprocessor',
