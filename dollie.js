@@ -4,13 +4,13 @@ module.exports = {
       name: 'name',
       type: 'input',
       message: 'Enter the project name',
-      default: 'project'
+      default: 'project',
     },
     {
       name: '$EXTEND:typescript$',
       type: 'confirm',
       message: 'Do you want to use TypeScript?',
-      default: false
+      default: false,
     },
     {
       name: '$EXTEND$',
@@ -19,22 +19,22 @@ module.exports = {
       choices: [
         {
           name: 'I do not want to use any preprocessor',
-          value: 'null'
+          value: 'null',
         },
         {
           name: 'Sass/Scss',
-          value: 'sass'
+          value: 'sass',
         },
         {
           name: 'Less',
-          value: 'less'
+          value: 'less',
         },
         {
           name: 'Stylus',
-          value: 'stylus'
-        }
+          value: 'stylus',
+        },
       ],
-      default: 'null'
+      default: 'null',
     },
     {
       name: '$EXTEND$',
@@ -43,70 +43,70 @@ module.exports = {
       choices: [
         {
           name: 'I do not want to use any state manager',
-          value: 'null'
+          value: 'null',
         },
         {
           name: 'Redux & React Redux',
-          value: 'redux'
+          value: 'redux',
         },
         {
           name: 'Dva.js',
-          value: 'dva'
-        }
+          value: 'dva',
+        },
       ],
-      default: 'null'
-    }
+      default: 'null',
+    },
   ],
   extendTemplates: {
     typescript: {
       files: {
         delete: [
-          'src/**/*.js'
+          'src/**/*.js',
         ],
         merge: [
           'config/webpack.config.js',
           '.babelrc',
           'package.json',
           '.eslintrc.js',
-          '.gitignore'
-        ]
-      }
+          '.gitignore',
+        ],
+      },
     },
     sass: {
       files: {
         delete: [
-          'src/**/*.{css,styl,less}'
+          'src/**/*.{css,styl,less}',
         ],
         merge: [
           'src/App.{js,tsx}',
           'config/webpack.config.js',
-          'package.json'
-        ]
-      }
+          'package.json',
+        ],
+      },
     },
     less: {
       files: {
         delete: [
-          'src/**/*.{css,sass,scss,styl}'
+          'src/**/*.{css,sass,scss,styl}',
         ],
         merge: [
           'src/App.{js,tsx}',
           'config/webpack.config.js',
-          'package.json'
-        ]
-      }
+          'package.json',
+        ],
+      },
     },
     stylus: {
       files: {
         delete: [
-          'src/App.{css,less,sass,scss}'
+          'src/App.{css,less,sass,scss}',
         ],
         merge: [
           'src/App.{js,tsx}',
           'config/webpack.config.js',
-          'package.json'
-        ]
-      }
+          'package.json',
+        ],
+      },
     },
     redux: {
       files: {
@@ -116,18 +116,27 @@ module.exports = {
         merge: [
           'src/App.{js,tsx}',
           'src/index.{js,tsx}',
-          'package.json'
-        ]
-      }
+          'package.json',
+        ],
+      },
     },
     dva: {
       files: {
         merge: [
           'src/App.{js,tsx}',
           'src/index.{js,tsx}',
-          'package.json'
-        ]
-      }
-    }
-  }
+          'package.json',
+        ],
+      },
+    },
+    'react-router': {
+      files: {
+        merge: [
+          'src/App.{js,tsx}',
+          'src/pages/**/*.{js,tsx}',
+          'package.json',
+        ],
+      },
+    },
+  },
 };
