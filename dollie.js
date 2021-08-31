@@ -155,18 +155,29 @@ module.exports = {
           default: 'component',
         },
       ],
-      cleanups: [
-        async ({
-          exists,
-          deleteFiles,
-        }) => {
-          if (exists('tsconfig.json')) {
-            deleteFiles(['src/components/**/*.js']);
-          } else {
-            deleteFiles(['src/components/**/*.tsx']);
-          }
-        },
-      ],
+      files: {
+        delete: [
+          async ({ exists }) => {
+            if (exists('tsconfig.json')) {
+              return ['src/components/**/*.js'];
+            } else {
+              return ['src/components/**/*.tsx'];
+            }
+          },
+        ],
+      },
+      // cleanups: [
+      //   async ({
+      //     exists,
+      //     deleteFiles,
+      //   }) => {
+      //     if (exists('tsconfig.json')) {
+      //       deleteFiles(['src/components/**/*.js']);
+      //     } else {
+      //       deleteFiles(['src/components/**/*.tsx']);
+      //     }
+      //   },
+      // ],
     },
   },
 };
