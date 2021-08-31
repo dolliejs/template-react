@@ -145,4 +145,26 @@ module.exports = {
       },
     },
   },
+  modules: {
+    component: {
+      questions: [
+        {
+          name: 'name',
+          type: 'input',
+          message: 'Enter the component name',
+          default: 'component',
+        },
+      ],
+      cleanups: [
+        async ({
+          exists,
+          deleteFiles,
+        }) => {
+          if (exists('tsconfig.json')) {
+            deleteFiles(['src/components/**/*.js']);
+          }
+        },
+      ],
+    },
+  },
 };
