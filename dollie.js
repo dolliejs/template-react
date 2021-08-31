@@ -162,6 +162,8 @@ module.exports = {
         }) => {
           if (exists('tsconfig.json')) {
             deleteFiles(['src/components/**/*.js']);
+          } else {
+            deleteFiles(['src/components/**/*.tsx']);
           }
         },
       ],
