@@ -179,5 +179,20 @@ module.exports = {
       //   },
       // ],
     },
+    page: {
+      validate: async ({
+        exists,
+      }) => {
+        // if (exists())
+      },
+      questions: [
+        {
+          name: 'name',
+          type: 'input',
+          message: 'Enter the page name',
+          default: 'page',
+        },
+      ],
+    },
   },
 };
