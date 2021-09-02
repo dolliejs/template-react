@@ -170,8 +170,35 @@ module.exports = {
     page: {
       validate: async ({
         exists,
+        getFileContent,
       }) => {
-        // if (exists())
+        if (!exists('src/App.js') && !exists('src/App.tsx')) {
+          return false;
+        }
+
+        let content;
+
+        if (exists('src/App.js') && !content) {
+          content = getFileContent('src/App.js');
+        }
+
+        if (exists('src/App.tsx') && !content) {
+          content = getFileContent('src/App.tsx');
+        }
+
+        if (!content) {
+          return false;
+        }
+
+        if (typeof content !== 'string') {
+          content = content.toString();
+        }
+
+        if (content.indexOf('<Router') === -1 && content.indexOf('\'react-router-dom\'') === -1) {
+          return false;
+        }
+
+        return true;
       },
       questions: [
         {
