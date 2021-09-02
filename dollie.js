@@ -166,18 +166,6 @@ module.exports = {
           },
         ],
       },
-      // cleanups: [
-      //   async ({
-      //     exists,
-      //     deleteFiles,
-      //   }) => {
-      //     if (exists('tsconfig.json')) {
-      //       deleteFiles(['src/components/**/*.js']);
-      //     } else {
-      //       deleteFiles(['src/components/**/*.tsx']);
-      //     }
-      //   },
-      // ],
     },
     page: {
       validate: async ({
@@ -196,6 +184,15 @@ module.exports = {
       files: {
         merge: [
           'src/App.{tsx,js}',
+        ],
+        delete: [
+          async ({ exists }) => {
+            if (exists('tsconfig.json')) {
+              return ['src/App.js'];
+            } else {
+              return ['src/App.tsx'];
+            }
+          },
         ],
       },
     },
