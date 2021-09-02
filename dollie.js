@@ -193,6 +193,11 @@ module.exports = {
           default: 'page',
         },
       ],
+      files: {
+        merge: [
+          'src/App.{tsx,js}',
+        ],
+      },
     },
   },
 };
