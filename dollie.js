@@ -215,9 +215,9 @@ module.exports = {
         delete: [
           async ({ exists }) => {
             if (exists('tsconfig.json')) {
-              return ['src/App.js'];
+              return ['src/App.js', 'src/pages/**/*.js'];
             } else {
-              return ['src/App.tsx'];
+              return ['src/App.tsx', 'src/pages/**/*.tsx'];
             }
           },
         ],
